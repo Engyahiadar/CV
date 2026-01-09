@@ -156,9 +156,6 @@ export default function Contact() {
                 Send Message →
               </button>
             </form>
-            <p className="text-sm text-gray-500 mt-6 text-center">
-              (The form uses Formspree – free for up to 50 submissions/month. Sign up at formspree.io to get your form ID.)
-            </p>
           </div>
         </div>
     </main>
