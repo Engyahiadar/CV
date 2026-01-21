@@ -9,14 +9,8 @@ import Contact from './contact/page';
 
 export default function Page() {
   return (
-    <main className="flex min-h-screen flex-col p-6">
-      {/* <div className="flex h-20 shrink-0 items-end rounded-lg bg-blue-500 p-4">
-        <AcmeLogo />
-      </div> */}
-      {/* <div className="flex h-20 shrink-0 items-end rounded-lg bg-blue-500 p-4"> */}
-        {/* <AcmeLogo /> */}
-        <Navbar />  {/* استورد المكون في أعلى الملف: import Navbar from '@/app/ui/navbar'; */}
-      {/* </div> */}
+    <main className="flex min-h-screen flex-col p-6 bg-gray-200">
+      <Navbar />
       <Home/>
       <Overview/>
       <Projects/>

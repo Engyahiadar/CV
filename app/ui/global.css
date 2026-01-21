@@ -21,3 +21,16 @@ input[type='number']::-webkit-outer-spin-button {
 html {
   scroll-behavior: smooth;
 }
+
+@keyframes glow {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+.animate-glow { animation: glow 3s ease-in-out infinite; }
+.animate-glow-delay { animation: glow 3s ease-in-out 1.5s infinite; }
+
+@keyframes pulse-slow {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+}
+.animate-pulse-slow { animation: pulse-slow 6s ease-in-out infinite; }

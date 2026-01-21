@@ -1,13 +1,6 @@
-'use client';
+import { SiReact, SiNextdotjs, SiJavascript, SiLaravel, SiDocker, SiKubernetes, SiSocketdotio, SiMui, SiNodedotjs, SiPython, SiTensorflow, SiMongodb, SiExpress, SiTailwindcss, SiRedux, SiAxios } from 'react-icons/si';
 
-import Link from 'next/link';
-import { motion, Variants } from 'framer-motion'; // أضفنا Variants هنا
-import { ArrowRightIcon ,ArrowLeftIcon} from '@heroicons/react/24/outline';
-import Image from 'next/image';
-import { SiReact, SiNextdotjs, SiJavascript, SiLaravel, SiDocker, SiKubernetes, SiSocketdotio, SiRedux, SiMui, SiAxios, SiDatefns } from 'react-icons/si';
-import { SiPython, SiTensorflow, SiNodedotjs, SiMongodb, SiExpress, SiTailwindcss } from 'react-icons/si';
-
-export const projects = [
+export const projectsArray = [
   {
     id: 1,
     title: 'A Learning Platform for Programming',
@@ -77,79 +70,3 @@ export const projects = [
     hasCaseStudy: false,
   },
 ];
-
-
-const cardVariants: Variants = {
-  hidden: { opacity: 0, y: 40 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.8, ease: 'easeOut' },
-  },
-};
-
-export default function ProjectsList() {
-  return (
-    <main className="min-h-screen  py-20 px-6" id="projects">
-      <div className="max-w-7xl mx-auto">
-        <h1 className="text-4xl md:text-6xl font-bold text-gray-800 text-center mb-16">
-          Projects
-        </h1>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <motion.div
-              key={project.id}
-              variants={cardVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.15 }}
-            >
-              <Link href={`/projects/${project.id}`}>
-                <div className="group relative bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 h-full flex flex-col cursor-pointer border border-gray-200">
-                  <div className="relative h-56 overflow-hidden">
-                    <Image
-                      src={project.imageUrl || '/placeholder.jpg'}
-                      alt={project.title}
-                      fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
-
-                    {project.hasCaseStudy && (
-                      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                        <span className="bg-white text-gray-800 px-6 py-3 rounded-full font-medium flex items-center gap-2 shadow-lg hover:bg-gray-100 transition">
-                          View Case Study <ArrowRightIcon/>
-                        </span>
-                      </div>
-                    )}
-                  </div>
-
-                  <div className="p-6 flex flex-col flex-grow">
-                    <h3 className="text-xl md:text-2xl font-bold text-gray-800 mb-3">
-                      {project.title}
-                    </h3>
-
-                    <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-6 flex-grow">
-                      {project.shortDescription}
-                    </p>
-
-                    <div className="flex flex-wrap gap-3 justify-center md:justify-start">
-                      {project.techStack.map((tech, idx) => (
-                        <tech.icon
-                          key={idx}
-                          className={`text-3xl ${tech.color} opacity-80 group-hover:opacity-100 transition`}
-                        />
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </Link>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </main>
-  );
-}
